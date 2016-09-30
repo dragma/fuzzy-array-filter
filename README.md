@@ -10,7 +10,7 @@ A simple fuzzy filter function for [`array.prototype.filter`](https://developer.
 npm i -S fuzzy-array-filter
 ```
 
-## How to use it : Simple
+## How to use it : Simple data structure
 
 ### Basics
 

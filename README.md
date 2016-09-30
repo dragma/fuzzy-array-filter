@@ -1,6 +1,14 @@
 # fuzzy-array-filter
 
+[![npm version](https://badge.fury.io/js/fuzzy-array-filter.svg)](https://badge.fury.io/js/fuzzy-array-filter)
+
 A simple fuzzy filter function for [`array.prototype.filter`](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Array/filter) using [fuse.js](http://fusejs.io/).
+
+## Install
+
+```sh
+npm i -S fuzzy-array-filter
+```
 
 ## How to use it : Simple
 

@@ -6,7 +6,7 @@ A simple fuzzy filter function for [`array.prototype.filter`](https://developer.
 
 ### Basics
 
-use this wrapper with simple array `[val1, val2, ...]` il really (really) easy :
+use this wrapper with simple array `[val1, val2, ...]` il is really (really) easy :
 
 ```JavaScript
 ìmport fuzzyFilter from 'fuzzy-array-filter';
@@ -66,12 +66,12 @@ console.log(array.filter(fuzzySearch('man', options)));
 
 For more details, please see the [fuse.js](http://fusejs.io/) options documentation
 
-## How to use it : More complex
+## How to use it : More complex data structures
 
 ### Basics
 
-When you use this wrapper with more complex data, make sure you have custom options.
-you *MUST* fill the `id` and the `keys` options *AND* `id` *MUST* be one of the `keys` values.
+When you use this wrapper with more complex data structure, make sure you have provided some custom options.
+You **MUST** fill the `id` and the `keys` options **AND** `id` **MUST** be one of the `keys` values.
 
 In most of use cases `keys = [id, [whatever]]`.
 
@@ -169,4 +169,4 @@ console.log(filteredTab2)
 
 ## ToDo
 
-* An idea ?
+* Any idea ?

@@ -2,11 +2,13 @@
 
 A simple fuzzy filter function for [`array.prototype.filter`](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Array/filter) using [fuse.js](http://fusejs.io/).
 
-## How to use it
+## How to use it : Simple
 
-### Simple
+### Basics
 
-```javascript
+use this wrapper with simple array `[val1, val2, ...]` il really (really) easy :
+
+```JavaScript
 ìmport fuzzyFilter from 'fuzzy-array-filter';
 
 const array = ['There is a house in New Orleans',
@@ -44,7 +46,7 @@ Default fuzzy options are
 
 ### With custom options
 
-```javascript
+```JavaScript
 ìmport fuzzyFilter from 'fuzzy-array-filter';
 
 const array = theRisingSunArray; // the previous one
@@ -64,10 +66,107 @@ console.log(array.filter(fuzzySearch('man', options)));
 
 For more details, please see the [fuse.js](http://fusejs.io/) options documentation
 
+## How to use it : More complex
+
+### Basics
+
+When you use this wrapper with more complex data, make sure you have custom options.
+you *MUST* fill the `id` and the `keys` options *AND* `id` *MUST* be one of the `keys` values.
+
+In most of use cases `keys = [id, [whatever]]`.
+
+### Simple complex
+
+```JavaScript
+const tab = [
+  {names: 'Edwina' },
+  {names: 'Augusta' },
+  {names: 'Lina' },
+  {names: 'Ware' },
+  {names: 'Kim' },
+  {names: 'Nita' },
+  {names: 'Garrett' },
+  {names: 'Concepcion' },
+  {names: 'Laverne' },
+  {names: 'Alford' },
+  {names: 'Jill' },
+  {names: 'Reed' },
+  {names: 'Shaw' },
+];
+
+const options = {
+  keys: ['names'],
+  id: 'names'
+}
+
+const filteredTab = tab.filter(fuzzyFilter('in', options))
+console.log(filteredTab)
+
+```
+
+### Complex
+
+```JavaScript
+const tab2 = [
+  {names: { first: 'Edwina' } },
+  {names: { first: 'Augusta' } },
+  {names: { first: 'Lina' } },
+  {names: { first: 'Ware' } },
+  {names: { first: 'Kim' } },
+  {names: { first: 'Nita' } },
+  {names: { first: 'Garrett' } },
+  {names: { first: 'Concepcion' } },
+  {names: { first: 'Laverne' } },
+  {names: { first: 'Alford' } },
+  {names: { first: 'Jill' } },
+  {names: { first: 'Reed' } },
+  {names: { first: 'Shaw' } },
+];
+
+const options2 = {
+  keys: ['names.first'],
+  id: 'names.first'
+}
+
+const filteredTab2 = tab2.filter(fuzzyFilter('in', options2))
+console.log(filteredTab2)
+
+```
+
+### More complex
+
+```JavaScript
+const tab3 = [
+  {names: { first: ['Edwina'] } },
+  {names: { first: ['Augusta'] } },
+  {names: { first: ['Lina'] } },
+  {names: { first: ['Ware'] } },
+  {names: { first: ['Kim'] } },
+  {names: { first: ['Nita'] } },
+  {names: { first: ['Garrett'] } },
+  {names: { first: ['Concepcion'] } },
+  {names: { first: ['Laverne'] } },
+  {names: { first: ['Alford'] } },
+  {names: { first: ['Jill'] } },
+  {names: { first: ['Reed'] } },
+  {names: { first: ['Shaw'] } },
+];
+
+const options3 = {
+  keys: ['names.first'],
+  id: 'names.first'
+}
+
+const filteredTab3 = tab3.filter(fuzzyFilter('in', options3))
+console.log(filteredTab2)
+
+```
+
+
 ## Dependencies
 
 * [fuse.js](https://www.npmjs.com/package/fuse.js)
 
 ## ToDo
 
-* It must filter more complex arrays
+* An idea ?

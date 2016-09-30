@@ -1,7 +1,7 @@
 {
   "name": "fuzzy-array-filter",
-  "version": "0.0.1b",
-  "description": "A simple array fuzzy filtering",
+  "version": "0.1.0",
+  "description": "A simple fuzzy array prototype filter",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

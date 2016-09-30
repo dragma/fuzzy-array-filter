@@ -1,6 +1,11 @@
 var Fuse = require('fuse.js');
 
 var fuzzyFilter = function(value, options) {
+  if (!value) {
+    return function() {
+      return true;
+    }
+  }
   if (!options) {
     options = {};
   }

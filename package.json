@@ -1,0 +1,27 @@
+{
+  "name": "fuzzy-array-filter",
+  "version": "0.0.1b",
+  "description": "A simple array fuzzy filtering",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dragma/fuzzy-array-filter.git"
+  },
+  "keywords": [
+    "array",
+    "fuzzy",
+    "filter"
+  ],
+  "author": "Dragma",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/dragma/fuzzy-array-filter/issues"
+  },
+  "homepage": "https://github.com/dragma/fuzzy-array-filter#readme",
+  "dependencies": {
+    "fuse.js": "2.5.0"
+  }
+}

@@ -16,7 +16,7 @@ npm i -S fuzzy-array-filter
 
 use this wrapper with simple array `[val1, val2, ...]` il is really (really) easy :
 
-```JavaScript
+```js
 ìmport fuzzyFilter from 'fuzzy-array-filter';
 
 const array = ['There is a house in New Orleans',
@@ -36,7 +36,7 @@ const array = ['There is a house in New Orleans',
   'Spend your lives in sin and misery',
   'In the House of the Rising Sun' ];
 
-console.log(array.filter(fuzzySearch('new orleans')));
+console.log(array.filter(fuzzyFilter('new orleans')));
 // => [ 'There is a house in New Orleans', 'Down in New Orleans' ]
 
 ```
@@ -54,7 +54,7 @@ Default fuzzy options are
 
 ### With custom options
 
-```JavaScript
+```js
 ìmport fuzzyFilter from 'fuzzy-array-filter';
 
 const array = theRisingSunArray; // the previous one
@@ -63,7 +63,7 @@ const options = {
   caseSensitive: true,
 };
 
-console.log(array.filter(fuzzySearch('new orleans', options)));
+console.log(array.filter(fuzzyFilter('new orleans', options)));
 // => []
 
 console.log(array.filter(fuzzySearch('man', options)));
@@ -85,8 +85,8 @@ In most of use cases `keys = [id, [whatever]]`.
 
 ### Simple complex
 
-```JavaScript
-const tab = [
+```js
+const array = [
   {names: 'Edwina' },
   {names: 'Augusta' },
   {names: 'Lina' },
@@ -107,15 +107,15 @@ const options = {
   id: 'names'
 }
 
-const filteredTab = tab.filter(fuzzyFilter('in', options))
-console.log(filteredTab)
+const filteredArray = array.filter(fuzzyFilter('in', options))
+console.log(filteredArray)
 
 ```
 
 ### Complex
 
-```JavaScript
-const tab2 = [
+```js
+const array2 = [
   {names: { first: 'Edwina' } },
   {names: { first: 'Augusta' } },
   {names: { first: 'Lina' } },
@@ -136,15 +136,15 @@ const options2 = {
   id: 'names.first'
 }
 
-const filteredTab2 = tab2.filter(fuzzyFilter('in', options2))
-console.log(filteredTab2)
+const filteredArray2 = array2.filter(fuzzyFilter('in', options2))
+console.log(filteredArray2)
 
 ```
 
 ### More complex
 
-```JavaScript
-const tab3 = [
+```js
+const array3 = [
   {names: { first: ['Edwina'] } },
   {names: { first: ['Augusta'] } },
   {names: { first: ['Lina'] } },
@@ -165,8 +165,8 @@ const options3 = {
   id: 'names.first'
 }
 
-const filteredTab3 = tab3.filter(fuzzyFilter('in', options3))
-console.log(filteredTab2)
+const filteredArray3 = array3.filter(fuzzyFilter('in', options3))
+console.log(filteredArray2)
 
 ```
 

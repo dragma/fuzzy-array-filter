@@ -27,7 +27,7 @@ var fuzzyFilter = function(value, options) {
     }
     if (typeof val === 'object') {
       var idValues = val;
-      options.id.split('.').forEach(key => idValues = idValues[key])
+      options.id.split('.').forEach(key => (idValues = idValues[key]))
       if (Array.isArray(idValues)) {
         var temp = idValues.reduce((prev, idValue) => (result.indexOf(idValue) !== -1 || prev), false)
         return temp;

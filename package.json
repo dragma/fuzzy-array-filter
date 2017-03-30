@@ -1,6 +1,6 @@
 {
   "name": "fuzzy-array-filter",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "A simple fuzzy array prototype filter",
   "main": "dist/index.js",
   "scripts": {

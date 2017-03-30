@@ -1,41 +1,34 @@
-var Fuse = require('fuse.js');
+import Fuse from 'fuse.js';
 
-var fuzzyFilter = function(value, options) {
+export default (value = null, options = {}) => {
   if (!value) {
-    return function() {
-      return true;
-    }
+    return () => true;
   }
-  if (!options) {
-    options = {};
-  }
-  var defaultOptions = {
-    threshold: 0.4,
-    location: 0,
+  const defaultOptions = {
     distance: 100,
+    keys: [],
+    location: 0,
     maxPatternLength: 32,
-    keys: []
+    threshold: 0.4,
   };
 
-  var fuse = null;
-  var result = null;
+  let fuse = null;
+  let result = null;
 
-  return function(val, key, array) {
+  return (val, key, array) => {
     if (!fuse || !result) {
       fuse = new Fuse(array, Object.assign(defaultOptions, options))
       result = fuse.search(value);
     }
     if (typeof val === 'object') {
-      var idValues = val;
+      let idValues = val;
       options.id.split('.').forEach(key => (idValues = idValues[key]))
       if (Array.isArray(idValues)) {
-        var temp = idValues.reduce((prev, idValue) => (result.indexOf(idValue) !== -1 || prev), false)
+        let temp = idValues.reduce((prev, idValue) => (result.indexOf(idValue) !== -1 || prev), false)
         return temp;
       }
       return result.indexOf(idValues) !== -1;
     }
     return result.indexOf(key) !== -1;
   };
-}
-
-module.exports = fuzzyFilter;
+};

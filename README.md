@@ -79,32 +79,32 @@ For more details, please see the [fuse.js](http://fusejs.io/) options documentat
 ### Basics
 
 When you use this wrapper with more complex data structure, make sure you have provided some custom options.
-You **MUST** fill the `id` and the `keys` options **AND** `id` **MUST** be one of the `keys` values.
+You **MUST** fill the `id` and the `keys` options.
 
-In most of use cases `keys = [id, [whatever]]`.
+`id` option is a single value. It can represent anything, like a string or a number.
 
 ### Simple complex
 
 ```js
 const array = [
-  {names: 'Edwina' },
-  {names: 'Augusta' },
-  {names: 'Lina' },
-  {names: 'Ware' },
-  {names: 'Kim' },
-  {names: 'Nita' },
-  {names: 'Garrett' },
-  {names: 'Concepcion' },
-  {names: 'Laverne' },
-  {names: 'Alford' },
-  {names: 'Jill' },
-  {names: 'Reed' },
-  {names: 'Shaw' },
+  { uniqueValue: 1, names: 'Edwina' },
+  { uniqueValue: 2, names: 'Augusta' },
+  { uniqueValue: 3, names: 'Lina' },
+  { uniqueValue: 4, names: 'Ware' },
+  { uniqueValue: 5, names: 'Kim' },
+  { uniqueValue: 6, names: 'Nita' },
+  { uniqueValue: 7, names: 'Garrett' },
+  { uniqueValue: 8, names: 'Concepcion' },
+  { uniqueValue: 9, names: 'Laverne' },
+  { uniqueValue: 10, names: 'Alford' },
+  { uniqueValue: 11, names: 'Jill' },
+  { uniqueValue: 12, names: 'Reed' },
+  { uniqueValue: 13, names: 'Shaw' },
 ];
 
 const options = {
   keys: ['names'],
-  id: 'names'
+  id: 'uniqueValue'
 }
 
 const filteredArray = array.filter(fuzzyFilter('in', options))
@@ -116,24 +116,24 @@ console.log(filteredArray)
 
 ```js
 const array2 = [
-  {names: { first: 'Edwina' } },
-  {names: { first: 'Augusta' } },
-  {names: { first: 'Lina' } },
-  {names: { first: 'Ware' } },
-  {names: { first: 'Kim' } },
-  {names: { first: 'Nita' } },
-  {names: { first: 'Garrett' } },
-  {names: { first: 'Concepcion' } },
-  {names: { first: 'Laverne' } },
-  {names: { first: 'Alford' } },
-  {names: { first: 'Jill' } },
-  {names: { first: 'Reed' } },
-  {names: { first: 'Shaw' } },
+  { id: 1, names: { first: 'Edwina', last:'random' } },
+  { id: 2, names: { first: 'Augusta', last:'random' } },
+  { id: 3, names: { first: 'Lina', last:'random' } },
+  { id: 4, names: { first: 'Ware', last:'random' } },
+  { id: 5, names: { first: 'Kim', last:'random' } },
+  { id: 6, names: { first: 'Nita', last:'random' } },
+  { id: 7, names: { first: 'Garrett', last:'random' } },
+  { id: 8, names: { first: 'Concepcion', last:'random' } },
+  { id: 9, names: { first: 'Laverne', last:'random' } },
+  { id: 10, names: { first: 'Alford', last:'random' } },
+  { id: 11, names: { first: 'Jill', last:'random' } },
+  { id: 12, names: { first: 'Reed', last:'random' } },
+  { id: 13, names: { first: 'Shaw', last:'random' } },
 ];
 
 const options2 = {
-  keys: ['names.first'],
-  id: 'names.first'
+  keys: ['names.first', 'names.last'],
+  id: 'id'
 }
 
 const filteredArray2 = array2.filter(fuzzyFilter('in', options2))
@@ -145,28 +145,28 @@ console.log(filteredArray2)
 
 ```js
 const array3 = [
-  {names: { first: ['Edwina'] } },
-  {names: { first: ['Augusta'] } },
-  {names: { first: ['Lina'] } },
-  {names: { first: ['Ware'] } },
-  {names: { first: ['Kim'] } },
-  {names: { first: ['Nita'] } },
-  {names: { first: ['Garrett'] } },
-  {names: { first: ['Concepcion'] } },
-  {names: { first: ['Laverne'] } },
-  {names: { first: ['Alford'] } },
-  {names: { first: ['Jill'] } },
-  {names: { first: ['Reed'] } },
-  {names: { first: ['Shaw'] } },
+  { id: 1, names: { first: ['Edwina'], last:['random'] } },
+  { id: 2, names: { first: ['Augusta'], last:['random'] } },
+  { id: 3, names: { first: ['Lina'], last:['random'] } },
+  { id: 4, names: { first: ['Ware'], last:['random'] } },
+  { id: 5, names: { first: ['Kim'], last:['random'] } },
+  { id: 6, names: { first: ['Nita'], last:['random'] } },
+  { id: 7, names: { first: ['Garrett'], last:['random'] } },
+  { id: 8, names: { first: ['Concepcion'], last:['random'] } },
+  { id: 9, names: { first: ['Laverne'], last:['random'] } },
+  { id: 10, names: { first: ['Alford'], last:['random'] } },
+  { id: 11, names: { first: ['Jill'], last:['random'] } },
+  { id: 12, names: { first: ['Reed'], last:['random'] } },
+  { id: 13, names: { first: ['Shaw'], last:['random'] } },
 ];
 
 const options3 = {
   keys: ['names.first'],
-  id: 'names.first'
+  id: 'id'
 }
 
 const filteredArray3 = array3.filter(fuzzyFilter('in', options3))
-console.log(filteredArray2)
+console.log(filteredArray3)
 
 ```
 

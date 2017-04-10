@@ -1,12 +1,11 @@
 {
   "name": "fuzzy-array-filter",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "A simple fuzzy array prototype filter",
   "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "./node_modules/.bin/babel -d dist index.js",
-    "postinstall": "npm run build"
+    "build": "./node_modules/.bin/babel -d dist index.js"
   },
   "repository": {
     "type": "git",
